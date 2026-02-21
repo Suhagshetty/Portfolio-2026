@@ -40,7 +40,7 @@ export default function DraggablePhotoWindow() {
           {/* IMAGE */}
           <div className="relative w-full h-[300px] bg-black">
             <Image
-              src="/photo.jpg"
+              src="/prof.jpeg"
               alt="Profile"
               fill
               className="object-cover grayscale"
