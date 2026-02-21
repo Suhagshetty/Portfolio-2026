@@ -10,7 +10,7 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "suhag.dev",
+  title: "$suhag.dev",
   description: "A project under Suhag's Space technologies LLC",
 };
 
