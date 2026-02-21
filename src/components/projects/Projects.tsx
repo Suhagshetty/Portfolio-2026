@@ -37,7 +37,7 @@ const projects = [
     stack: ["React.js", "Node.js", "Express.js", "AWS Lambda", "S3"],
     description:
       "Multi-language code editor with AI-assisted generation, syntax highlighting, and direct GitHub push/pull integration.",
-    image: "/projects/apex2.png",
+    image: "/apex.png",
     repo: "#",
   },
 ];
