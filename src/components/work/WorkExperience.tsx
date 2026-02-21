@@ -10,14 +10,14 @@ const experiences = [
   {
     company: "Nextiva",
     role: "Software Engineer Intern",
-    period: "Jun 2025 – Present",
+    period: "Jun 2025 – Dec 2025",
     description:
       "Engineered RESTful APIs serving 1,500+ enterprise customers, improving response time by 20% through query optimization and Redis caching.",
     stack: [
       "Node.js",
       "Express.js",
-      "React 19",
-      "Next.js 15",
+      "React 18",
+      "Next.js 14",
       "TypeScript",
       "MongoDB",
       "Redis",
@@ -29,15 +29,7 @@ const experiences = [
     period: "Jun 2024 – Nov 2024",
     description:
       "Built React 18 components for an enterprise dashboard serving 2,000+ daily active users, reducing page load time by 15% through code splitting and lazy loading.",
-    stack: [
-      "React 18",
-      "Tailwind CSS",
-      "ShadCN UI",
-      "Redux",
-      "TypeScript",
-      "Node",
-      "OpenAi SDK",
-    ],
+    stack: ["React 18", "Tailwind CSS", "ShadCN UI", "Redux", "TypeScript"],
   },
   {
     company: "Apex",
@@ -52,8 +44,6 @@ const experiences = [
       "MongoDB",
       "AWS",
       "WebSockets",
-      "Inngest",
-      "Convex",
     ],
   },
 ];
@@ -80,8 +70,8 @@ export default function WorkExperience() {
             {/* Timeline dot + line */}
             <div className="flex flex-col items-center">
               <div className="relative shrink-0 mt-1.5">
-                <div className="w-3 h-3 rounded-full bg-zinc-600" />
-                <div className="absolute inset-0 w-3 h-3 rounded-full bg-zinc-500 blur-[4px] opacity-60" />
+                <div className="w-3 h-3 rounded-full bg-zinc-400" />
+                <div className="absolute inset-0 w-3 h-3 rounded-full bg-zinc-300 blur-[4px] opacity-60" />
               </div>
               {index < experiences.length - 1 && (
                 <div className="relative flex-1 mt-3 flex justify-center">
