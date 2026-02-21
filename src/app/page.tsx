@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import WorkExperience from "@/components/work/WorkExperience";
 import GitHubGraph from "@/components/GitHubGraph";
 import Projects from "@/components/projects/Projects";
+import Contact from "@/components/Contact/Contact";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <section id="projects">
         <Projects />
       </section>
+      <Contact />
     </>
   );
 }
