@@ -95,17 +95,17 @@ export default function GitHubGraph() {
           </span>
         </div>
       ) : (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto max-w-full">
           <div className="min-w-max">
             {/* Month labels */}
-            <div className="flex gap-[3px] mb-1 ml-0">
+            <div className="flex gap-[4px] mb-2 ml-0">
               {weeks.map((_, i) => {
                 const month = monthLabels.find((m) => m.col === i);
                 return (
-                  <div key={i} className="w-[11px]">
+                  <div key={i} className="w-[14px]">
                     {month && (
                       <span
-                        className={`${inter.className} text-[10px] text-zinc-200`}
+                        className={`${inter.className} text-[11px] text-zinc-200`}
                       >
                         {month.label}
                       </span>
@@ -116,9 +116,9 @@ export default function GitHubGraph() {
             </div>
 
             {/* Grid */}
-            <div className="flex gap-[3px]">
+            <div className="flex gap-[4px]">
               {weeks.map((week, wi) => (
-                <div key={wi} className="flex flex-col gap-[3px]">
+                <div key={wi} className="flex flex-col gap-[4px]">
                   {week.map((day, di) => (
                     <div
                       key={di}
@@ -127,7 +127,7 @@ export default function GitHubGraph() {
                           ? `${day.date}: ${day.count} contributions`
                           : ""
                       }
-                      className="w-[11px] h-[11px] rounded-[2px]"
+                      className="w-[14px] h-[14px] rounded-[3px]"
                       style={{ background: getColor(day.level) }}
                     />
                   ))}
@@ -147,7 +147,7 @@ export default function GitHubGraph() {
                 {COLORS.map((c, i) => (
                   <div
                     key={i}
-                    className="w-[11px] h-[11px] rounded-[2px]"
+                    className="w-[14px] h-[14px] rounded-[3px]"
                     style={{ background: c }}
                   />
                 ))}

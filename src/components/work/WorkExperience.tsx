@@ -10,7 +10,7 @@ const experiences = [
   {
     company: "Nextiva",
     role: "Software Engineer Intern",
-    period: "Jun 2025 – Dec 2025",
+    period: "Jun 2025 – Present",
     description:
       "Engineered RESTful APIs serving 1,500+ enterprise customers, improving response time by 20% through query optimization and Redis caching.",
     stack: [

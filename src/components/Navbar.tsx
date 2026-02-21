@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 const navItems = [
   { label: "README.md", id: "whoami" },
   { label: "Projects", id: "projects" },
-  { label: "Blog", id: "blog" },
+  { label: "Ship Log", id: "shiplog" },
 ];
 
 interface NavbarProps {
@@ -56,15 +56,41 @@ export default function Navbar({
     return () => clearInterval(interval);
   }, []);
 
+  // Highlight active section on scroll
+  useEffect(() => {
+    const sectionIds = navItems.map((i) => i.id);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px" },
+    );
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
+
   const handleClick = (id: string) => {
     setActive(id);
     onSectionChange?.(id);
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   const indicator = hovered ?? active;
 
   return (
-    <div className={`${inter.className} sticky top-0 z-50 bg-background/80 backdrop-blur-md`}>
+    <div
+      className={`${inter.className} sticky top-0 z-50 bg-background/80 backdrop-blur-md`}
+    >
       <div className="flex items-center justify-between py-4">
         <nav className="flex items-center gap-1">
           {navItems.map((item) => (
