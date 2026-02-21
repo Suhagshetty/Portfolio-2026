@@ -10,7 +10,7 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Suhag Shetty — Software Engineer",
+  title: "suhagshetty",
   description:
     "Software Engineer with 1+ year of experience building scalable full-stack applications. Currently building Apex, a Cursor competitor. Open to Full-Time, Freelance, or Collabs.",
   keywords: [

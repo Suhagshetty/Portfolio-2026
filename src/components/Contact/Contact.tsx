@@ -29,12 +29,10 @@ const socials = [
     icon: `${SI}/youtube.svg`,
     href: "https://www.youtube.com/@worksuhag",
   },
-  {
-    name: "X",
-    icon: `${SI}/x.svg`,
-    href: "https://x.com/Suhag_tsx",
-  },
+  { name: "X", icon: `${SI}/x.svg`, href: "https://x.com/Suhag_tsx" },
 ];
+
+type Status = "idle" | "loading" | "success" | "error";
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -43,17 +41,38 @@ export default function Contact() {
     email: "",
     message: "",
   });
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
 
-  const handleSubmit = (e: React.MouseEvent) => {
+  const handleSubmit = async (e: React.MouseEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Message from ${form.name}`);
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nPhone: ${form.phone}\nEmail: ${form.email}\n\n${form.message}`,
-    );
-    window.location.href = `mailto:suhagshetty07@gmail.com?subject=${subject}&body=${body}`;
-    setSent(true);
+    if (!form.name || !form.email || !form.message) {
+      setStatus("error");
+      return;
+    }
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setStatus("success");
+        setForm({ name: "", phone: "", email: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
+
+  const buttonLabel = {
+    idle: "Submit",
+    loading: "Sending...",
+    success: "Message Sent ✓",
+    error: "Something went wrong — try again",
+  }[status];
 
   return (
     <section className="py-16">
@@ -72,19 +91,17 @@ export default function Contact() {
             If you have any inquiries, please feel free to reach out. You can
             contact me via email at{" "}
             <a
-              href="mailto:suhagshetty07@gmail.com"
+              href="mailto:worksuhag@gmail.com"
               className="text-white font-medium hover:underline"
             >
-              suhagshetty07@gmail.com
+              worksuhag@gmail.com
             </a>
           </p>
 
-          {/* Socials */}
           <div className="space-y-3">
             <p className={`${inter.className} text-sm text-white font-medium`}>
               Follow me
             </p>
-
             <div className="flex items-center gap-2 flex-wrap">
               {socials.map((s) => (
                 <a
@@ -143,9 +160,16 @@ export default function Contact() {
 
           <button
             onClick={handleSubmit}
-            className={`${inter.className} w-full bg-white text-black font-medium py-3 rounded-lg hover:bg-zinc-200 transition-colors text-sm`}
+            disabled={status === "loading" || status === "success"}
+            className={`${inter.className} w-full py-3 rounded-lg font-medium text-sm transition-colors ${
+              status === "success"
+                ? "bg-zinc-700 text-zinc-300 cursor-default"
+                : status === "error"
+                  ? "bg-red-900/40 text-red-300 border border-red-800"
+                  : "bg-white text-black hover:bg-zinc-200"
+            }`}
           >
-            {sent ? "Message Sent ✓" : "Submit"}
+            {buttonLabel}
           </button>
         </div>
       </div>
@@ -153,13 +177,11 @@ export default function Contact() {
       {/* Footer */}
       <div className="relative mt-16 pt-8 flex items-center justify-between">
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-zinc-600 to-transparent" />
-
         <p
           className={`${inter.className} text-sm md:text-base font-medium bg-gradient-to-r from-zinc-400 via-white to-zinc-400 bg-clip-text text-transparent`}
         >
           © 2026 Developed with ♥ by Suhag
         </p>
-
         <div className="flex items-center gap-3">
           <a
             href="#"
