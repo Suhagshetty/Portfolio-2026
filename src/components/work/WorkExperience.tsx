@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600"] });
 const experiences = [
   {
     company: "Nextiva",
-    role: "Software Engineer Intern",
+    role: "Software Engineer",
     period: "Jun 2025 – Present",
     description:
       "Engineered RESTful APIs serving 1,500+ enterprise customers, improving response time by 20% through query optimization and Redis caching.",

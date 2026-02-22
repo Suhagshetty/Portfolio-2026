@@ -32,9 +32,6 @@ export default function DraggablePhotoWindow() {
               <span className="w-3 h-3 bg-yellow-400 rounded-full" />
               <span className="w-3 h-3 bg-green-500 rounded-full" />
             </div>
-            <span className="mx-auto text-xs text-neutral-400">
-              Photo Booth
-            </span>
           </div>
 
           {/* IMAGE */}
