@@ -13,24 +13,24 @@ const projects = [
     stack: ["Next.js", "NeonDB", "Clerk", "Firebase", "AssemblyAI", "Stripe"],
     description:
       "GitHub code collaboration platform with RAG-powered Q&A on repos, commit log analysis, meeting transcription via AssemblyAI, and team invite + billing via Stripe.",
-    image: "/projects/gitsmash.png",
-    repo: "#",
+    image: "/gitsmash.png",
+    repo: "https://github.com/Suhagshetty/Git-Smash",
   },
   {
     title: "Sanity.AI",
     stack: ["Next.js 14", "TypeScript", "tRPC", "PostgreSQL", "Docker"],
     description:
       "AI-powered website generation platform that converts natural language prompts into production-ready websites.",
-    image: "/projects/sanity.png",
-    repo: "#",
+    image: "/sanity.png",
+    repo: "https://github.com/Suhagshetty/Lovable",
   },
   {
     title: "Hermes.AI",
     stack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Tailwind CSS"],
     description:
       "AI career platform with resume builder, ATS score checker, and mock interview system. 95+ Lighthouse score.",
-    image: "/projects/hermes.png",
-    repo: "#",
+    image: "/hermes.png",
+    repo: "https://github.com/Suhagshetty/Lumina",
   },
   {
     title: "Apex Code Editor",
@@ -38,7 +38,7 @@ const projects = [
     description:
       "Multi-language code editor with AI-assisted generation, syntax highlighting, and direct GitHub push/pull integration.",
     image: "/apex.png",
-    repo: "#",
+    repo: "https://github.com/Suhagshetty/cursor-replit",
   },
 ];
 
