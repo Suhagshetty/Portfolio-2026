@@ -43,6 +43,7 @@ export default function DraggablePhotoWindow() {
               src="/prof.jpeg"
               alt="Profile"
               fill
+              sizes="340px"
               className="object-cover grayscale"
               priority
             />

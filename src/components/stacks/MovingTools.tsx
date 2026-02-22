@@ -6,7 +6,7 @@ import { Instrument_Serif, Inter } from "next/font/google";
 const instrumentSerif = Instrument_Serif({ subsets: ["latin"], weight: "400" });
 const inter = Inter({ subsets: ["latin"], weight: ["500"] });
 
-const SI = "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons";
+const SI = "/icons";
 
 // Note: Inngest → temporalio (closest alternative), Aceternity UI → radixui (component lib), Neon → xata (modern DB alt)
 const row1 = [

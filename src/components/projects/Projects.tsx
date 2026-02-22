@@ -13,7 +13,7 @@ const projects = [
     stack: ["Next.js", "NeonDB", "Clerk", "Firebase", "AssemblyAI", "Stripe"],
     description:
       "GitHub code collaboration platform with RAG-powered Q&A on repos, commit log analysis, meeting transcription via AssemblyAI, and team invite + billing via Stripe.",
-    image: "/gitsmash.png",
+    image: "/git.png",
     repo: "https://github.com/Suhagshetty/Git-Smash",
   },
   {
@@ -21,7 +21,7 @@ const projects = [
     stack: ["Next.js 14", "TypeScript", "tRPC", "PostgreSQL", "Docker"],
     description:
       "AI-powered website generation platform that converts natural language prompts into production-ready websites.",
-    image: "/sanity.png",
+    image: "/san.png",
     repo: "https://github.com/Suhagshetty/Lovable",
   },
   {
@@ -87,7 +87,7 @@ export default function Projects() {
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg"
+                    src="/icons/github.svg"
                     alt="GitHub"
                     style={{ width: 16, height: 16, filter: "invert(0.6)" }}
                     className="hover:brightness-200 transition-all"

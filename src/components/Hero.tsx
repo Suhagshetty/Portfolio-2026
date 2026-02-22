@@ -84,7 +84,7 @@ export default function Hero() {
           >
             <K>National Hackathon Champion</K> at DevHacks and Code for Bharat.
             Led the <K>200+ member Oscode SAIT</K> community. Won{" "}
-            <K>Student of the Year</K> four years running.
+            <K>Student of the Year</K>(2021-2025).
           </motion.p>
 
           <motion.p

@@ -6,7 +6,7 @@ import { Instrument_Serif, Inter } from "next/font/google";
 const instrumentSerif = Instrument_Serif({ subsets: ["latin"], weight: "400" });
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500"] });
 
-const SI = "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons";
+const SI = "/icons";
 
 const socials = [
   {
