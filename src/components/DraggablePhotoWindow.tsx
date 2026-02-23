@@ -2,28 +2,40 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function DraggablePhotoWindow() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 640);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
   return (
     <div className="relative w-full flex justify-start">
-      {/* STACK WRAPPER — size controlled here */}
-      <div className="relative w-[340px] h-[440px]">
+      {/* STACK WRAPPER */}
+      <div className="relative w-full max-w-[340px] h-[420px] sm:h-[440px]">
         {/* BACK STACK LAYER 1 */}
         <div className="absolute inset-0 bg-neutral-900 rounded-2xl shadow-2xl rotate-6 translate-x-5 translate-y-5 opacity-40" />
 
         {/* BACK STACK LAYER 2 */}
         <div className="absolute inset-0 bg-neutral-900 rounded-2xl shadow-2xl rotate-3 translate-x-2 translate-y-2 opacity-60" />
 
-        {/* DRAGGABLE CARD */}
+        {/* DRAGGABLE CARD — drag disabled on mobile */}
         <motion.div
-          drag
+          drag={!isMobile}
           dragElastic={0.18}
           dragConstraints={{ left: -180, right: 180, top: -180, bottom: 180 }}
-          whileTap={{ scale: 0.98 }}
+          whileTap={!isMobile ? { scale: 0.98 } : undefined}
           initial={{ rotate: -2 }}
           whileHover={{ rotate: 0 }}
           transition={{ type: "spring", stiffness: 200, damping: 20 }}
-          className="relative w-full h-full bg-neutral-950 rounded-2xl shadow-[0_30px_70px_rgba(0,0,0,0.6)] overflow-hidden cursor-grab active:cursor-grabbing"
+          className={`relative w-full h-full bg-neutral-950 rounded-2xl shadow-[0_30px_70px_rgba(0,0,0,0.6)] overflow-hidden ${
+            !isMobile ? "cursor-grab active:cursor-grabbing" : ""
+          }`}
         >
           {/* MAC BAR */}
           <div className="flex items-center gap-2 px-4 py-3 bg-neutral-900 border-b border-neutral-800">
@@ -32,15 +44,18 @@ export default function DraggablePhotoWindow() {
               <span className="w-3 h-3 bg-yellow-400 rounded-full" />
               <span className="w-3 h-3 bg-green-500 rounded-full" />
             </div>
+            <span className="mx-auto text-xs text-neutral-500">
+              Photo Booth
+            </span>
           </div>
 
           {/* IMAGE */}
-          <div className="relative w-full h-[300px] bg-black">
+          <div className="relative w-full h-[280px] sm:h-[300px] bg-black">
             <Image
               src="/prof.jpeg"
               alt="Profile"
               fill
-              sizes="340px"
+              sizes="(max-width: 640px) 100vw, 340px"
               className="object-cover grayscale"
               priority
             />
@@ -52,11 +67,9 @@ export default function DraggablePhotoWindow() {
               <div className="w-7 h-5 bg-neutral-700 rounded-md" />
               <div className="w-7 h-5 bg-neutral-700 rounded-md" />
             </div>
-
             <div className="w-12 h-12 bg-neutral-700 rounded-full flex items-center justify-center">
               <div className="w-7 h-7 bg-white rounded-full" />
             </div>
-
             <button className="text-xs text-neutral-400 bg-neutral-800 px-3 py-1.5 rounded-md hover:bg-neutral-700 transition">
               Effects
             </button>
