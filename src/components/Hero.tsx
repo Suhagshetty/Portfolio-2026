@@ -46,7 +46,7 @@ export default function Hero() {
             variants={fadeUp}
             className={`${instrumentSerif.className} text-[36px] leading-tight tracking-tight text-white`}
           >
-            Suhag, 22
+            Suhag, 23
           </motion.h1>
 
           <motion.p
