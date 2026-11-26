@@ -34,7 +34,7 @@ const experiences = [
   {
     company: "Apex",
     role: "Founder & Software Engineer",
-    period: "2024 – Present",
+    period: "June 2025 – November 2025",
     description:
       "Building a Cursor competitor — AI-powered code editor with intelligent completion, real-time collaboration via WebSockets, and GitHub import/export deployed on AWS.",
     stack: [
